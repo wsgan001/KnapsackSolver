@@ -12,8 +12,8 @@ import java.util.Random;
 import org.junit.Before;
 import org.junit.Test;
 
-import planner.Optimizer;
-import planner.Requirement;
+import solver.Optimizer;
+import solver.Requirement;
 
 /** The CorrectnessTest includes two core test cases: one for the greedy algorithm used by Optimizer, and one for the
  * dynamic algorithm.  It is designed to assess the correctness of each algorithm, meaning whether or not

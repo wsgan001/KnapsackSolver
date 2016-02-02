@@ -1,13 +1,13 @@
 package output;
 
 import input.JCommanderInput;
+import solver.Requirement;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import planner.Requirement;
 import util.Timer;
 
 /** The Output class takes a list of Requirements and then handles how they are displayed to the user.
@@ -45,7 +45,8 @@ public class Output {
 	public void output(ArrayList<Requirement> chosenReqs, String chosenAlgorithm) throws IOException {
 		
 		// Create FileWriter for output file and create same header as input file
-		FileWriter writer = new FileWriter(new File("output.csv"));
+		File outputFile = input.getOutputFile();
+		FileWriter writer = new FileWriter(outputFile);
 		String header = "Requirement,Cost,Benefit";
 		writer.write(header);
 		

@@ -5,10 +5,10 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import planner.Requirement;
-
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.ParameterException;
+
+import solver.Requirement;
 
 /** JCommanderInput handles all user input via the JCommander tool using command line arguments.
  * Various optional tags are included to give the user control over the desired input and output
@@ -23,34 +23,35 @@ public class JCommanderInput {
 	// Allow the user to specify which file will contain the list of requirements
 	// NOTE: The requirements list should be formated with a header on the first line, followed by requirements
 	//		 in the format: "RequirementName,IntegerCost,IntegerBenefit" separated by new lines
-	@Parameter(names = {"-i", "-input"}, description = "Enter the .csv file containing the list of requirements with their associated costs and benefits.  "
-			+ "The format of this file should be \"RequirementName,IntegerCost,IntegerBenefit\" with a unique requirement on each line.  "
-			+ "The first line of this file is assumed to be a header and will not be read.")
+	@Parameter(names = {"-i", "--input"}, description = "Enter the .csv file containing the list of requirements with their associated costs and benefits.  "
+			+ "The format of this file should be \"RequirementName,IntegerCost,IntegerBenefit\" with a unique requirement"
+			+ " on each line.  The first line of this file is assumed to be a header and will not be read.")
 	private File inputFile = new File("input.csv");
 	
 	// Allow the user to specify an output file
-	@Parameter(names = {"-o", "-output"}, description = "Enter the desired file name where output data will be sent.  E.g. \"output.csv\"")
+	@Parameter(names = {"-o", "--output"}, description = "Enter the desired file name where output data will be sent.  E.g. \"output.csv\"")
 	private File outputFile = new File("output.csv");
 
 	// Allow user to enter a single fixed cost (integer)
-	@Parameter(names = {"-f", "-fixed"}, description = "Enter the fixed cost threshold, which should be a positive integer.", validateWith = PositiveIntegerValidator.class)
+	@Parameter(names = {"-f", "--fixed"}, description = "Enter the fixed cost threshold, which should be a positive integer.", 
+			validateWith = PositiveIntegerValidator.class, required = true)
 	private int fixed = 0;
 	
 	// Allow user to force use of the greedy algorithm regardless of input size
-	@Parameter(names = {"-g", "-greedy"}, description = "Force the system to use a greedy selection algorithm instead of a dynamic one. "
+	@Parameter(names = {"-g", "--greedy"}, description = "Force the system to use a greedy selection algorithm instead of a dynamic one. "
 			+ "Faster run time, less memory usage, but potentially poorer profit maximization")
 	private boolean forceGreedy = false;
 	
 	// Allow user to toggle verbose mode
-	@Parameter(names = {"-v", "-verbose"}, description = "Show extended statistical information")
+	@Parameter(names = {"-v", "--verbose"}, description = "Show extended statistical information")
 	private boolean verbose = false;
 	
 	// Allow user to toggle timer
-	@Parameter(names = {"-t", "-timer"}, description = "Show performance information")
+	@Parameter(names = {"-t", "--timer"}, description = "Show performance information")
 	private boolean showTimer = false;
 	
 	// Allow user to show help menu with parameter usage information
-	@Parameter(names = {"-h", "-help"}, description = "Shows parameter usage information")
+	@Parameter(names = {"-h", "--help"}, description = "Shows parameter usage information", help = true)
 	private boolean help = false;
 
 	// Store list of Requirement objects that contain cost and benefit information

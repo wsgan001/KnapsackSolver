@@ -1,4 +1,4 @@
-package planner;
+package solver;
 
 import input.JCommanderInput;
 
@@ -10,7 +10,7 @@ import util.Timer;
 
 import com.beust.jcommander.JCommander;
 
-/** Program execution begins here.  This system is meant to serve as a "next release planner," which will help
+/** Program execution begins here.  This system is meant to serve as a "next release solver," which will help
  * determine which list of requirements should be included in the next release of a system given some threshold
  * fixed cost, which the cumulative cost of the chosen requirements cannot exceed.
  * 
@@ -30,7 +30,7 @@ import com.beust.jcommander.JCommander;
  *   
  * @author Michael Camara
  */
-public class ReleasePlanner {
+public class Menu {
 
 	public static void main(String[] args) throws IOException {
 		
@@ -43,9 +43,9 @@ public class ReleasePlanner {
 		// Retrieve and interpret command line arguments
 		JCommander jcommand = new JCommander(input, args);
 		
-		// If user has specified the "-help" tag, show help message and stop program execution
+		// If user has specified the "--help" tag, show help message and stop program execution
 		if(input.getHelpInfo() == true) {
-			jcommand.setProgramName("java -jar ReleasePlanner.jar");
+			jcommand.setProgramName("01KnapsackSolver");
 			jcommand.usage();
 			return;
 		}

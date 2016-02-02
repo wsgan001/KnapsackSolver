@@ -1,4 +1,4 @@
-package planner;
+package solver;
 
 /** The Requirement class represents a single requirement, consisting of a name, a non-negative
  * cost, and a non-negative benefit.  An actual profit is derived from the difference between the benefit

@@ -5,6 +5,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 
+import com.beust.jcommander.JCommander;
+
 /** This class generates a random list of requirements then creates a valid input file that
  * can be used during program execution. 
  * 
@@ -15,33 +17,45 @@ public class RequirementGenerator {
 
 	public static void main(String[] args) throws IOException {
 		
-		// Indicate the name of the input file that will be created
-		String fileName = "input.csv";
+		// Instantiate JCommander components for accepting user-input
+		RequirementGeneratorInput input = new RequirementGeneratorInput();
+
+		// Retrieve and interpret command line arguments
+		JCommander jcommand = new JCommander(input, args);
 		
-		// Indicate the number of requirements to create
-		final int NUM_REQS = 10000;
+		// If user has specified the "--help" tag, show help message and stop program execution
+		if(input.isHelp() == true) {
+			jcommand.setProgramName("RequirementGenerator");
+			jcommand.usage();
+			return;
+		}
 		
 		// Create corresponding File and FileWriter for output
-		File file = new File(fileName);
+		File file = input.getGeneratedFile();
 		FileWriter writer = new FileWriter(file, false);
-		
-		// Use a random number generator for values
-		Random rand = new Random();
 		
 		// Create a simple, 1 line header for the file
 		String header = "Requirement,Cost,Benefit";
 		writer.write(header);
 		
+		// Record parameters entered by user
+		int numReqs = input.getSize();
+		int maxCost = input.getCost();
+		int maxBenefit = input.getBenefit();
+		
+		// Use a random number generator for values
+		Random rand = new Random();
+		
 		System.out.println("Start");
 		
-		// Create NUM_REQS number of requirements with random positive costs and benefits
-		for(int i = 0; i < NUM_REQS; i++) {	
+		// Create numReqs number of requirements with random positive costs and benefits
+		for(int i = 0, benefit = 0, cost = 0; i < numReqs; i++) {	
 			String name = "R" + i;
-			int benefit = rand.nextInt(101);
-			int cost = rand.nextInt(101);
+			benefit = rand.nextInt(maxBenefit);
+			cost = rand.nextInt(maxCost);
 			
-			String requirement = "\n" + name + "," + cost + "," + benefit;
-			writer.write(requirement);// + System.lineSeparator());
+			String requirement = System.lineSeparator() + name + "," + cost + "," + benefit;
+			writer.write(requirement);
 		}
 				
 		writer.close();

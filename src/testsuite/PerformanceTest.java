@@ -6,8 +6,8 @@ import java.util.Random;
 import org.junit.Before;
 import org.junit.Test;
 
-import planner.Optimizer;
-import planner.Requirement;
+import solver.Optimizer;
+import solver.Requirement;
 
 /** The PerformanceTest class contains two test cases: one for the greedy algorithm and one for the
  * dynamic algorithm.  A random list of requirements is first created, and then an Optimizer object
