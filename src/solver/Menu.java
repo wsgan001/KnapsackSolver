@@ -45,7 +45,7 @@ public class Menu {
 		
 		// If user has specified the "--help" tag, show help message and stop program execution
 		if(input.getHelpInfo() == true) {
-			jcommand.setProgramName("01KnapsackSolver");
+			jcommand.setProgramName("Menu");
 			jcommand.usage();
 			return;
 		}
