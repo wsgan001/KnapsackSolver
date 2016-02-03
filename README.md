@@ -5,7 +5,8 @@ KnapsackSolver is designed to provide a heuristic solution to the 0/1 knapsack p
 
 ## How to Use KnapsackSolver
 1. Open a terminal window (Linux/OS X) or command prompt (Windows) in the default `KnapsackSolver` directory.
-2. Add a comma-separated-value file (.csv) to this directory, or edit the existing `input.csv` file.
+2. Type `ant compile` to build the system.  Visit the (Apache Ant)[http://ant.apache.org/] website for information on downloading and installing this dependency.
+3. Add a comma-separated-value file (.csv) to this directory, or edit the existing `input.csv` file.
 	This file should contain all of your requirements in the following format:
 	
 	Line 1: A descriptive header.  E.g. "Requirements, Cost, Benefit"
@@ -15,11 +16,11 @@ KnapsackSolver is designed to provide a heuristic solution to the 0/1 knapsack p
 	`RequirementName,IntegerCost,IntegerBenefit`
 	
 	Note: The cost and benefit must be valid, non-negative integer values.
-2. To run ReleasePlanner, use the following syntax:
+4. To run ReleasePlanner, use the following syntax:
 
 	`java -cp bin:lib/* Menu [options]`
 	
-3. You can fill the [options] section with a variety of tags (only `-f, (--fixed)` is required)
+5. You can fill the [options] section with a variety of tags (only `-f, (--fixed)` is required)
 
 	  Usage: Menu [options]
 	  Options:
@@ -50,7 +51,7 @@ KnapsackSolver is designed to provide a heuristic solution to the 0/1 knapsack p
 	    -v, --verbose
 	       Show extended statistical information
 	       Default: false
-4. For example: 
+6. For example: 
 
 	`java -cp bin:lib/* solver.Menu -f 2000 -v -i "requirements.csv" -o "chosen.csv"`
 
