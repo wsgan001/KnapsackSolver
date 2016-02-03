@@ -62,3 +62,9 @@ KnapsackSolver is designed to provide a heuristic solution to the 0/1 knapsack p
  
 	`java -cp bin:lib/* testsuite.TestRunner`
 3.  Four tests for correctness and performance will be executed.  Any failures will be listed in the console output. 
+
+## Collaborators
+- Michael Camara @michaeljcamara (implemention, testing, user documentation)
+- Gary Miller @millerg2 (design)
+- Elizabeth Person @e-person (requirements analysis)
+- Gregory Kapfhammer @gkapfham (professor, mentor)
