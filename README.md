@@ -65,7 +65,7 @@ KnapsackSolver is designed to provide a heuristic solution to the 0/1 knapsack p
 3.  Four tests for correctness and performance will be executed.  Any failures will be listed in the console output. 
 
 ## Collaborators
-- Michael Camara @michaeljcamara (implemention, testing, user documentation)
-- Gary Miller @millerg2 (design)
-- Elizabeth Person @e-person (requirements analysis)
-- Gregory Kapfhammer @gkapfham (professor, mentor)
+- Michael Camara [@michaeljcamara](https://github.com/michaeljcamara) (implemention, testing, user documentation)
+- Gary Miller [@millerg2](https://github.com/millerg2) (design)
+- Elizabeth Person [@e-person](https://github.com/e-person) (requirements analysis)
+- Gregory Kapfhammer [@gkapfham](https://github.com/gkapfham) (professor, mentor)
